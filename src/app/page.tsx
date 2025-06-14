@@ -1,5 +1,9 @@
-import Header from '@/components/Header';
+import Link from 'next/link';
 
 export default function Home() {
-  return <Header />;
+  return (
+    <div className="pt-15">
+      <Link href="/products">Products</Link>
+    </div>
+  );
 }
