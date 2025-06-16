@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { Metadata } from 'next';
 
+import Providers from '@/app/Provders';
 import Header from '@/components/Header';
 
 import './globals.css';
@@ -19,10 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="container mx-auto px-3.5 w-full">
-          <Header />
-          {children}
-        </div>
+        <Providers>
+          <div className="container mx-auto px-3.5 w-full">
+            <Header />
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   );
