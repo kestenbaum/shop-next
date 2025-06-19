@@ -1,4 +1,6 @@
 import React from 'react';
+import { PiBasketDuotone } from 'react-icons/pi';
+import { VscAccount } from 'react-icons/vsc';
 
 import Link from 'next/link';
 
@@ -10,8 +12,12 @@ const Header = () => {
           <Link href="/">Logo</Link>
           <input type="search" placeholder="Search" />
           <div className="flex gap-1.5">
-            <a href="#">Basket</a>
-            <a href="#">Profile</a>
+            <Link href="/">
+              <PiBasketDuotone />
+            </Link>
+            <Link href="/">
+              <VscAccount />
+            </Link>
           </div>
         </div>
       </div>
