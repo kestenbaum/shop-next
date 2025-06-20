@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useContext, useLayoutEffect, useRef, useState } from 'react';
 import { PiBasketDuotone } from 'react-icons/pi';
 import { VscAccount } from 'react-icons/vsc';
 
@@ -8,10 +8,12 @@ import Link from 'next/link';
 
 import Logo from '@/components/ui/Logo';
 import Search from '@/components/ui/Search';
+import { SearchContext } from '@/contexts/SearchContext';
 
 const Header = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const { search, setSearch } = useContext(SearchContext);
 
   useLayoutEffect(() => {
     if (ref.current) {
@@ -31,7 +33,7 @@ const Header = () => {
             <Link href="/">
               <Logo />
             </Link>
-            <Search />
+            <Search search={search} setSearch={setSearch} />
             <div className="flex gap-1.5">
               <Link href="/">
                 <PiBasketDuotone />
