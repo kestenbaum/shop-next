@@ -8,7 +8,7 @@ import { useApiQuery } from '@/lib/api/hooks/useApiQuery';
 import { Post } from '@/lib/api/types';
 
 const Page = () => {
-  const { data, isLoading, errorMessage } = useApiQuery<Post[]>('/posts', 'posts');
+  const { data:posts = [], isLoading, errorMessage } = useApiQuery<Post[]>('/posts', 'posts');
 
   return (
     <div className="grid grid-cols-3 gap-4 pt-14 w-full">
@@ -16,8 +16,8 @@ const Page = () => {
 
       {errorMessage && <div>{errorMessage}</div>}
 
-      {data &&
-        data.map((product: Post) => (
+      {posts &&
+        posts.map((product: Post) => (
           <div
             className="flex flex-col items-center p-2.5 bg-amber-700 rounded-lg"
             key={product.id}
